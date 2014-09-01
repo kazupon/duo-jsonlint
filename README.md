@@ -17,7 +17,9 @@ $ npm install duo-jsonlint -g
 
 # Usage
 
-TODO:
+```bash
+$ duo --use duo-jsonlint index.js > build.js
+```
 
 
 # Testing

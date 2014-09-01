@@ -1,6 +1,6 @@
 {
   "name": "duo-jsonlint",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "jsonlint plugin for duo",
   "main": "index.js",
   "scripts": {

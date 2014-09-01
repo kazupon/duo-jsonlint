@@ -14,5 +14,7 @@ test-cov: clean node_modules
 
 clean:
 	@rm -rf ./coverage
+	@rm -rf ./test/fixtures/valid/components
+	@rm -rf ./test/fixtures/invalid/components
 
 .PHONY: test test-cov clean

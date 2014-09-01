@@ -13,7 +13,32 @@ var jsonlint = require('jsonlint');
 module.exports = plugin;
 
 function plugin () {
-  return function jsonlint (file, duo) {
-    throw new Error('Not Implement');
+  return function validJSON (file) {
+    if (file.type === 'js') { return; }
+    if (file.type === 'json') {
+      try {
+        jsonlint.parse(file.src);
+      } catch (e) {
+        debug('jsonlint.parse error', e.message);
+        throw new SyntaxError(message(e, file));
+      }
+    }
   };
+}
+
+
+/**
+ * create message
+ */
+
+function message (err, file) {
+  var msg = '';
+
+  msg += 'id: ' + file.id + '\n';
+  if (file.path) {
+    msg += 'path: ' + file.path + '\n';
+  }
+  msg += 'message: \n' + err.message;
+
+  return msg;
 }

@@ -48,24 +48,28 @@ function evaluate (js, ctx) {
  */
 
 describe('duo-jsonlint', function () {
-  it('should valid json', function (done) {
-    var duo = build('valid');
-    duo.use(jsonlint());
-    duo.run(function (err, js) {
-      if (err) { return done(err); }
+  describe('valid json', function () {
+    it('should be no error', function (done) {
+      var duo = build('valid');
+      duo.use(jsonlint());
+      duo.run(function (err, js) {
+        if (err) { return done(err); }
 
-      var ctx = evaluate(js).main;
-      expect(ctx).to.eql({ key: 'value' });
-      done();
+        var ctx = evaluate(js).main;
+        expect(ctx).to.eql({ key: 'value' });
+        done();
+      });
     });
   });
 
-  it('should raise error', function (done) {
-    var duo = build('invalid');
-    duo.use(jsonlint());
-    duo.run(function (err, js) {
-      expect(err).to.be.a(SyntaxError);
-      done();
+  describe('invalid json', function () {
+    it('should raise SyntaxError', function (done) {
+      var duo = build('invalid');
+      duo.use(jsonlint());
+      duo.run(function (err, js) {
+        expect(err).to.be.a(SyntaxError);
+        done();
+      });
     });
   });
 });

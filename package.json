@@ -1,0 +1,23 @@
+{
+  "name": "duo-jsonlint",
+  "version": "0.0.0",
+  "description": "jsonlint plugin for duo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kazupon/duo-jsonlint.git"
+  },
+  "keywords": [
+    "duo",
+    "plugin"
+  ],
+  "author": "kazuya kawaguchi <kawakazu80@gmail.com> (http://blog.kazupon.jp)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kazupon/duo-jsonlint/issues"
+  },
+  "homepage": "https://github.com/kazupon/duo-jsonlint"
+}
